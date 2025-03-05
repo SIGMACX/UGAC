@@ -4,13 +4,6 @@
 
 <!-- PROJECT SHIELDS -->
 
-[![Contributors][contributors-shield]][contributors-url]
-[![Forks][forks-shield]][forks-url]
-[![Stargazers][stars-shield]][stars-url]
-[![Issues][issues-shield]][issues-url]
-[![MIT License][license-shield]][license-url]
-[![LinkedIn][linkedin-shield]][linkedin-url]
-
 <!-- PROJECT LOGO -->
 <br />
 
@@ -19,11 +12,11 @@
     <img src="logo.png" alt="Logo" width="80" height="80">
   </a>
 
-  <h3 align="center">"UGAC</h3>
+  <h3 align="center">UGAC</h3>
   <p align="center">
     Uncertainty-Guided Adaptive Correction for Semi-Supervised Medical Image Segmentation
     <br />
-    <a href="https://github.com/shaojintian/Best_README_template"><strong>EXPLORE THE DOCUMENTATION FOR THIS PROJECT »</strong></a>
+<!--     <a href=""><strong>EXPLORE THE DOCUMENTATION FOR THIS PROJECT »</strong></a> -->
     <br />
     <br />
 <!--     <a href="https://github.com/shaojintian/Best_README_template">查看Demo</a> -->
