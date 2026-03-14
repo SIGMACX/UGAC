@@ -1,6 +1,5 @@
 
 # (UGAC）Uncertainty-Guided Adaptive Correction for Semi-Supervised Medical Image Segmentation
-## The code will be released later.
 
 <!-- PROJECT SHIELDS -->
 
