@@ -1,0 +1,39 @@
+data_root: /path/to/MMWHS
+output_dir: outputs/mmwhs
+
+num_epochs: 1000
+num_classes: 8
+input_channels: 1
+image_size: 512
+batch_size: 2
+num_workers: 4
+label_ratio: 20
+
+model_name_1: mamba_unet
+model_name_2: unet
+patch_size: 4
+
+seg_lr: 0.0001
+adv_lr: 0.0001
+weight_decay: 0.01
+seg_max_norm: 5.0
+adv_max_norm: 1.0
+
+lambda_sup: 1.0
+mu_adv: 0.01
+consistency: 0.4
+consistency_rampup: 100.0
+mask_threshold: 0.1
+
+fuse_method: uncertainty_fuse
+fuse_weights: [0.5, 0.5]
+
+evaluation_interval: 1
+max_no_improve_epochs: 200
+use_amp: true
+seed: 3407
+
+labeled_txt: null
+unlabeled_txt: null
+val_txt: null
+label_values: [0, 60, 126, 150, 165, 179, 246, 255]
