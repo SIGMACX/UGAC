@@ -1,7 +1,7 @@
-# UGAC
+# UGAC: Uncertainty-Guided Adaptive Correction for Semi-Supervised Medical Image Segmentation
 
 <p align="center">
-  <img src="fig_UGAC_main_7.png" width="95%" alt="Overview of UGAC">
+  <img src="readme_file/UGAC.png" width="95%" alt="Overview of UGAC">
 </p>
 ## Overview
 
