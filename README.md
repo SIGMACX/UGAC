@@ -1,52 +1,67 @@
+# UGAC: Uncertainty-Guided Adaptive Correction
 
-# (UGAC）Uncertainty-Guided Adaptive Correction for Semi-Supervised Medical Image Segmentation
+![UGAC main framework](fig_UGAC_main_7.png)
 
-<!-- PROJECT SHIELDS -->
+## Overview
 
-<!-- PROJECT LOGO -->
-<br />
+Consistent perturbation strategies are widely used in semi-supervised medical image segmentation, but they can struggle when unlabeled predictions are affected by distribution shifts or unstable model generalization. UGAC addresses these issues with an uncertainty-guided training framework that corrects unreliable unlabeled predictions and regularizes uncertainty propagation during optimization.
 
-<p align="center">
-  <a href="https://github.com/SIGMACX/UGAC">
-    <img src="logo.png" alt="Logo" width="80" height="80">
-  </a>
+The framework is built around three ideas:
 
-  <h3 align="center">UGAC</h3>
-  <p align="center">
-    Uncertainty-Guided Adaptive Correction for Semi-Supervised Medical Image Segmentation
-    <br />
-<!--     <a href=""><strong>EXPLORE THE DOCUMENTATION FOR THIS PROJECT »</strong></a> -->
-    <br />
-    <br />
-<!--     <a href="https://github.com/shaojintian/Best_README_template">查看Demo</a> -->
-    ·
-<!--     <a href="https://github.com/shaojintian/Best_README_template/issues">报告Bug</a>
-    ·
-    <a href="https://github.com/shaojintian/Best_README_template/issues">提出新特性</a> -->
-  </p>
-
-</p>
-
-【Abstract】
-Consistent perturbation strategies have emerged as a dominant paradigm in semi-supervised medical image segmentation. Nevertheless, prevailing approaches inadequately address two critical challenges: (1) prediction errors induced by data uncertainty from distribution shifts, and (2) loss instability caused by model uncertainty in parameter generalization. To overcome these limitations, we propose an Uncertainty-Guided Adaptive Correction (UGAC) framework with three key innovations. First, we develop a dual-path uncertainty rectification mechanism that employs normalized entropy measures to detect error-prone regions in unlabeled predictions, followed by bilateral correction through confidence-weighted fusion. Second, we introduce adversarial consistency constraints that leverage labeled data to discriminate authentic segmentation patterns, effectively regularizing uncertainty propagation in unlabeled predictions through spectral normalization. Third, we architect a frequency-aware segmentation backbone through our novel Freqfusion module, which performs adaptive spectral decomposition during feature decoding to explicitly disentangle high-frequency (boundary-aware) and low-frequency (structural) components, thereby enhancing anatomical boundary sensitivity. Comprehensive evaluations on MM-WHS, BUSI, and PROMISE12 datasets demonstrate UGAC's superior performance. The proposed framework exhibits robust generalizability across CT, MRI, and ultrasound modalities while maintaining computational efficiency comparable to baseline UNet implementations.
- 
-![image](https://github.com/SIGMACX/UGAC/blob/main/fig_UGAC_main_7.pdf)
-
-<!-- links -->
-[your-project-path]:shaojintian/Best_README_template
-[contributors-shield]: https://img.shields.io/github/contributors/shaojintian/Best_README_template.svg?style=flat-square
-[contributors-url]: https://github.com/shaojintian/Best_README_template/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/shaojintian/Best_README_template.svg?style=flat-square
-[forks-url]: https://github.com/shaojintian/Best_README_template/network/members
-[stars-shield]: https://img.shields.io/github/stars/shaojintian/Best_README_template.svg?style=flat-square
-[stars-url]: https://github.com/shaojintian/Best_README_template/stargazers
-[issues-shield]: https://img.shields.io/github/issues/shaojintian/Best_README_template.svg?style=flat-square
-[issues-url]: https://img.shields.io/github/issues/shaojintian/Best_README_template.svg
-[license-shield]: https://img.shields.io/github/license/shaojintian/Best_README_template.svg?style=flat-square
-[license-url]: https://github.com/shaojintian/Best_README_template/blob/master/LICENSE.txt
-[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=flat-square&logo=linkedin&colorB=555
-[linkedin-url]: https://linkedin.com/in/shaojintian
+- **Dual-path uncertainty rectification**: normalized entropy is used to identify error-prone regions in unlabeled predictions, followed by bilateral correction and confidence-weighted fusion.
+- **Adversarial consistency constraints**: labeled segmentation maps provide authentic structural patterns for a spectral-normalized discriminator, encouraging unlabeled predictions to remain anatomically plausible.
+- **Frequency-aware segmentation design**: the full UGAC framework is designed to enhance boundary sensitivity by separating high-frequency boundary cues from low-frequency anatomical structure during decoding.
 
 
+## Data Layout
 
+Prepare the dataset outside this repository. The default configuration expects:
+
+```text
+/path/to/MMWHS/
+  imagesTr/
+    case_000_slice_000.png
+    ...
+  labelsTr/
+    case_000_slice_000.png
+    ...
+  txt_path/
+    train_imagesTr_labeled_20.txt
+    train_imagesTr_unlabeled_80.txt
+    val_imagesTr.txt
+```
+
+## Installation
+
+```bash
+cd UGAC
+python -m venv .venv
+source .venv/bin/activate
+pip install -e .
+pip install -r requirements.txt
+```
+
+## Training
+
+```bash
+python -m mmwhs_fns.train_mmwhs \
+  --config configs/mmwhs.yaml \
+  --data_root /path/to/MMWHS \
+  --output_dir outputs/mmwhs
+```
+
+## Citation
+
+If you use this repository, please cite the UGAC paper when citation information becomes available.
+```bash
+@article{chen2025uncertainty,
+  title={Uncertainty-Guided Adaptive Correction for Semi-Supervised Medical Image Segmentation},
+  author={Chen, Xi and Tong, Lyuyang and Zhao, Huangxuan and Du, Bo},
+  journal={IEEE Transactions on Image Processing},
+  volume={34},
+  pages={7975--7988},
+  year={2025},
+  publisher={IEEE}
+}
+```
 
