@@ -1,7 +1,8 @@
-# UGAC: Uncertainty-Guided Adaptive Correction
+# UGAC
 
-![UGAC main framework](fig_UGAC_main_7.png)
-
+<p align="center">
+  <img src="fig_UGAC_main_7.png" width="95%" alt="Overview of UGAC">
+</p>
 ## Overview
 
 Consistent perturbation strategies are widely used in semi-supervised medical image segmentation, but they can struggle when unlabeled predictions are affected by distribution shifts or unstable model generalization. UGAC addresses these issues with an uncertainty-guided training framework that corrects unreliable unlabeled predictions and regularizes uncertainty propagation during optimization.
