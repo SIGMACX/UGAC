@@ -27,9 +27,9 @@ Prepare the dataset outside this repository. The default configuration expects:
     case_000_slice_000.png
     ...
   txt_path/
-    train_imagesTr_labeled_20.txt
-    train_imagesTr_unlabeled_80.txt
-    val_imagesTr.txt
+    train_imagesTr_labeled.txt
+    train_imagesTr_unlabeled.txt
+    test_imagesTr.txt
 ```
 
 ## Installation
